@@ -8,7 +8,7 @@ export class MessageClass {
     public content: string;
 
     @prop({ ref: () => UserClass })
-    public author?: Ref<UserClass | string>;
+    public author?: Ref<UserClass>;
 
     @prop({ type: () => String })
     public timestamp?: string;
