@@ -10,5 +10,5 @@ export function createMessage(
 }
 
 export function getMessagesByRoom(roomId: string) {
-    return Message.find({ room: roomId }).exec();
+    return Message.find({ room: roomId }).populate('author').exec();
 }
