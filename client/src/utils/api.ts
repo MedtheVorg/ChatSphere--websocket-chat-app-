@@ -5,6 +5,7 @@ const SERVER_URL =
     import.meta.env.VITE_ENV == 'dev'
         ? import.meta.env.VITE_DEV_URL
         : import.meta.env.VITE_PROD_URL;
+
 // rooms
 export async function getRooms() {
     try {

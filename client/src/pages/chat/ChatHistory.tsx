@@ -9,6 +9,8 @@ export default function ChatHistory() {
     const [historyMessages, setHistoryMessages] = useState<ChatroomMessage[]>(
         []
     );
+
+    console.log('🚀 ~ ChatHistory ~ historyMessages:', historyMessages);
     const chatHistoryRef = useRef<HTMLDivElement | null>(null);
     const handleChatMessage = (data: ChatroomMessage) => {
         setHistoryMessages((prevMessages) => [...prevMessages, data]);
@@ -33,13 +35,13 @@ export default function ChatHistory() {
                 data: {
                     _id: string;
                     content: string;
-                    author: string;
+                    author: { _id: string; pseudonym: string };
                     timestamp: string;
                 }[]
             ) => {
                 const refactoredData: ChatroomMessage[] = data.map(
                     (message) => ({
-                        username: message.author,
+                        username: message.author.pseudonym,
                         text: message.content,
                         time: message.timestamp,
                     })
