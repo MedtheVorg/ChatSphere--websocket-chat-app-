@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 //users
-// export function createUser()
 
+const SERVER_URL =
+    import.meta.env.VITE_ENV == 'dev'
+        ? import.meta.env.VITE_DEV_URL
+        : import.meta.env.VITE_PROD_URL;
 // rooms
 export async function getRooms() {
     try {
-        const response = await fetch('http://localhost:8080/rooms');
+        const response = await fetch(`${SERVER_URL}/rooms`);
         const data = await response.json();
         return data;
     } catch (error: any) {
@@ -15,9 +18,7 @@ export async function getRooms() {
 
 export async function getMessagesByRoom(roomId: string) {
     try {
-        const response = await fetch(
-            `http://localhost:8080/messages?roomId=${roomId}`
-        );
+        const response = await fetch(`${SERVER_URL}/messages?roomId=${roomId}`);
         const data = await response.json();
         return data;
     } catch (error: any) {

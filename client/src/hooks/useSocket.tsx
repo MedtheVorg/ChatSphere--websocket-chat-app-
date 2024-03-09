@@ -2,7 +2,11 @@ import { ReactNode, createContext, useContext, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
 import { Room } from '../types/types';
 
-export const socket = io('http://localhost:8080');
+const SERVER_URL =
+    import.meta.env.VITE_ENV == 'dev'
+        ? import.meta.env.VITE_DEV_URL
+        : import.meta.env.VITE_PROD_URL;
+export const socket = io(SERVER_URL as string);
 type SocketContextType = {
     socket: Socket;
     username: string;
