@@ -32,16 +32,19 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/MedtheVorg/ChatSphere--websocket-chat-app-.git
 
-# Go into the repository
-$ cd electron-markdownify
+# Go into the server and the client folder
+$ cd server  and cd client
 
-# Install dependencies
+# Install dependencies for both client and server folders
 $ npm install
 
-# Run the app
+# Run the server (while inside the server folder)
 $ npm start
+
+# Run the client (while inside the client folder)
+$ npm run dev
 ```
 
 <br/>
